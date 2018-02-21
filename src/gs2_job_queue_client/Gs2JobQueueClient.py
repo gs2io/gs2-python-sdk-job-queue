@@ -58,6 +58,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
             body["notificationGameName"] = request.get_notification_game_name()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.CreateQueueRequest import CreateQueueRequest
 
         from gs2_job_queue_client.control.CreateQueueResult import CreateQueueResult
@@ -86,6 +88,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DeleteDeadJobRequest import DeleteDeadJobRequest
 
         self._do_delete_request(
@@ -113,6 +117,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DeleteQueueRequest import DeleteQueueRequest
 
         self._do_delete_request(
@@ -145,6 +151,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeDeadJobRequest import DescribeDeadJobRequest
 
         from gs2_job_queue_client.control.DescribeDeadJobResult import DescribeDeadJobResult
@@ -178,6 +186,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeDeadJobByScriptNameRequest import DescribeDeadJobByScriptNameRequest
 
         from gs2_job_queue_client.control.DescribeDeadJobByScriptNameResult import DescribeDeadJobByScriptNameResult
@@ -211,6 +221,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeDeadJobByUserIdRequest import DescribeDeadJobByUserIdRequest
 
         from gs2_job_queue_client.control.DescribeDeadJobByUserIdResult import DescribeDeadJobByUserIdResult
@@ -244,6 +256,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeJobRequest import DescribeJobRequest
 
         from gs2_job_queue_client.control.DescribeJobResult import DescribeJobResult
@@ -277,6 +291,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeJobByUserIdRequest import DescribeJobByUserIdRequest
 
         from gs2_job_queue_client.control.DescribeJobByUserIdResult import DescribeJobByUserIdResult
@@ -310,6 +326,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeJobResultRequest import DescribeJobResultRequest
 
         from gs2_job_queue_client.control.DescribeJobResultResult import DescribeJobResultResult
@@ -343,6 +361,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DescribeQueueRequest import DescribeQueueRequest
 
         from gs2_job_queue_client.control.DescribeQueueResult import DescribeQueueResult
@@ -372,6 +392,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.GetDeadJobRequest import GetDeadJobRequest
 
         from gs2_job_queue_client.control.GetDeadJobResult import GetDeadJobResult
@@ -401,6 +423,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.GetQueueRequest import GetQueueRequest
 
         from gs2_job_queue_client.control.GetQueueResult import GetQueueResult
@@ -431,6 +455,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.PushRequest import PushRequest
 
         from gs2_job_queue_client.control.PushResult import PushResult
@@ -461,6 +487,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.RunRequest import RunRequest
 
         from gs2_job_queue_client.control.RunResult import RunResult
@@ -490,6 +518,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.RunByUserIdRequest import RunByUserIdRequest
 
         from gs2_job_queue_client.control.RunByUserIdResult import RunByUserIdResult
@@ -526,6 +556,8 @@ class Gs2JobQueueClient(AbstractGs2Client):
             body["notificationGameName"] = request.get_notification_game_name()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.UpdateQueueRequest import UpdateQueueRequest
 
         from gs2_job_queue_client.control.UpdateQueueResult import UpdateQueueResult
