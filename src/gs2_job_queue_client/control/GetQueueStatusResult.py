@@ -17,7 +17,7 @@
 from gs2_job_queue_client.model import *
 
 
-class DescribeDeadJobByScriptNameResult(object):
+class GetQueueStatusResult(object):
 
     def __init__(self, response):
         """
@@ -25,30 +25,15 @@ class DescribeDeadJobByScriptNameResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        self.__items = list(
-            map(
-                lambda data:
-                DeadJob(data),
-                response['items']
-            )
-        )
-        self.__next_page_token = unicode(response['nextPageToken']) if 'nextPageToken' in response.keys() and response['nextPageToken'] is not None else None
+        self.__status = unicode(response['status']) if 'status' in response.keys() and response['status'] is not None else None
 
-    def get_items(self):
+    def get_status(self):
         """
-        ジョブを取得
-        :return: ジョブ
-        :rtype: list[DeadJob]
-        """
-        return self.__items
-
-    def get_next_page_token(self):
-        """
-        次のページを読み込むためのトークンを取得
-        :return: 次のページを読み込むためのトークン
+        ステータスを取得
+        :return: ステータス
         :rtype: unicode
         """
-        return self.__next_page_token
+        return self.__status
 
     def to_dict(self):
         """
@@ -57,6 +42,5 @@ class DescribeDeadJobByScriptNameResult(object):
         :rtype: dict
         """
         return {
-            'items': map(lambda item: item.to_dict(), self.__items),
-            'nextPageToken': self.__next_page_token,
+            'status': self.__status,
         }

@@ -25,13 +25,12 @@ class RunByUserIdResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        
         self.__item = JobResult(response['item']) if 'item' in response.keys() and response['item'] is not None else None
 
     def get_item(self):
         """
-        ジョブを取得
-        :return: ジョブ
+        ジョブ結果を取得
+        :return: ジョブ結果
         :rtype: JobResult
         """
         return self.__item
@@ -42,7 +41,6 @@ class RunByUserIdResult(object):
         :return: 辞書配列
         :rtype: dict
         """
-        return { 
+        return {
             'item': self.__item.to_dict(),
-        
         }

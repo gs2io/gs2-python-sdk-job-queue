@@ -32,15 +32,23 @@ class CreateQueueRequest(Gs2BasicRequest):
         super(CreateQueueRequest, self).__init__(params)
         if params is None:
             self.__name = None
-            self.__description = None
-            self.__notification_type = None
-            self.__notification_url = None
-            self.__notification_game_name = None
         else:
             self.set_name(params['name'] if 'name' in params.keys() else None)
+        if params is None:
+            self.__description = None
+        else:
             self.set_description(params['description'] if 'description' in params.keys() else None)
+        if params is None:
+            self.__notification_type = None
+        else:
             self.set_notification_type(params['notificationType'] if 'notificationType' in params.keys() else None)
+        if params is None:
+            self.__notification_url = None
+        else:
             self.set_notification_url(params['notificationUrl'] if 'notificationUrl' in params.keys() else None)
+        if params is None:
+            self.__notification_game_name = None
+        else:
             self.set_notification_game_name(params['notificationGameName'] if 'notificationGameName' in params.keys() else None)
 
     def get_name(self):
@@ -57,6 +65,8 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param name: 名前
         :type name: unicode
         """
+        if not isinstance(name, unicode):
+            raise TypeError(type(name))
         self.__name = name
 
     def with_name(self, name):
@@ -84,6 +94,8 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
+        if not isinstance(description, unicode):
+            raise TypeError(type(description))
         self.__description = description
 
     def with_description(self, description):
@@ -111,6 +123,8 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_type: ジョブが追加されたときの通知方式
         :type notification_type: unicode
         """
+        if not isinstance(notification_type, unicode):
+            raise TypeError(type(notification_type))
         self.__notification_type = notification_type
 
     def with_notification_type(self, notification_type):
@@ -138,6 +152,8 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_url: http/https を選択した際の通知先URL
         :type notification_url: unicode
         """
+        if not isinstance(notification_url, unicode):
+            raise TypeError(type(notification_url))
         self.__notification_url = notification_url
 
     def with_notification_url(self, notification_url):
@@ -165,6 +181,8 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_game_name: gs2-in-game-push-notification を選択した際の GS2-InGamePushNotification のゲーム名
         :type notification_game_name: unicode
         """
+        if not isinstance(notification_game_name, unicode):
+            raise TypeError(type(notification_game_name))
         self.__notification_game_name = notification_game_name
 
     def with_notification_game_name(self, notification_game_name):

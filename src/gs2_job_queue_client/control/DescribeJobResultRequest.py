@@ -32,13 +32,19 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         super(DescribeJobResultRequest, self).__init__(params)
         if params is None:
             self.__queue_name = None
-            self.__job_id = None
-            self.__page_token = None
-            self.__limit = None
         else:
             self.set_queue_name(params['queueName'] if 'queueName' in params.keys() else None)
+        if params is None:
+            self.__job_id = None
+        else:
             self.set_job_id(params['jobId'] if 'jobId' in params.keys() else None)
+        if params is None:
+            self.__page_token = None
+        else:
             self.set_page_token(params['pageToken'] if 'pageToken' in params.keys() else None)
+        if params is None:
+            self.__limit = None
+        else:
             self.set_limit(params['limit'] if 'limit' in params.keys() else None)
 
     def get_queue_name(self):
@@ -55,6 +61,8 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前を指定します。
         :type queue_name: unicode
         """
+        if not isinstance(queue_name, unicode):
+            raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
     def with_queue_name(self, queue_name):
@@ -82,6 +90,8 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param job_id: ジョブID
         :type job_id: unicode
         """
+        if not isinstance(job_id, unicode):
+            raise TypeError(type(job_id))
         self.__job_id = job_id
 
     def with_job_id(self, job_id):
@@ -109,6 +119,8 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param page_token: データの取得を開始する位置を指定するトークン
         :type page_token: unicode
         """
+        if not isinstance(page_token, unicode):
+            raise TypeError(type(page_token))
         self.__page_token = page_token
 
     def with_page_token(self, page_token):
@@ -136,6 +148,8 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param limit: データの取得件数
         :type limit: int
         """
+        if not isinstance(limit, int):
+            raise TypeError(type(limit))
         self.__limit = limit
 
     def with_limit(self, limit):

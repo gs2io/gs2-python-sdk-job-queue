@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class PushJob(object):
 
     def __init__(self, params=None):
@@ -25,7 +26,6 @@ class PushJob(object):
             self.set_script_name(params['scriptName'] if 'scriptName' in params.keys() else None)
             self.set_args(params['args'] if 'args' in params.keys() else None)
             self.set_max_retry(params['maxRetry'] if 'maxRetry' in params.keys() else None)
-
 
     def get_script_name(self):
         """
@@ -76,7 +76,7 @@ class PushJob(object):
         self.__max_retry = max_retry
 
     def to_dict(self):
-        return { 
+        return {
             "scriptName": self.__script_name,
             "args": self.__args,
             "maxRetry": self.__max_retry,

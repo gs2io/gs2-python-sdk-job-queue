@@ -18,10 +18,10 @@ from gs2_core_client.Gs2BasicRequest import Gs2BasicRequest
 from gs2_job_queue_client.Gs2JobQueue import Gs2JobQueue
 
 
-class DeleteQueueRequest(Gs2BasicRequest):
+class GetQueueStatusRequest(Gs2BasicRequest):
 
     class Constant(Gs2JobQueue):
-        FUNCTION = "DeleteQueue"
+        FUNCTION = "GetQueueStatus"
 
     def __init__(self, params=None):
         """
@@ -29,7 +29,7 @@ class DeleteQueueRequest(Gs2BasicRequest):
         :param params: 辞書配列形式のパラメータ初期値リスト
         :type params: dict|None
         """
-        super(DeleteQueueRequest, self).__init__(params)
+        super(GetQueueStatusRequest, self).__init__(params)
         if params is None:
             self.__queue_name = None
         else:
@@ -59,7 +59,7 @@ class DeleteQueueRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前を指定します。
         :type queue_name: unicode
         :return: this
-        :rtype: DeleteQueueRequest
+        :rtype: GetQueueStatusRequest
         """
         self.set_queue_name(queue_name)
         return self

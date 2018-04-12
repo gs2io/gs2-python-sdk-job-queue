@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class JobResult(object):
 
     def __init__(self, params=None):
@@ -31,7 +32,6 @@ class JobResult(object):
             self.set_result(params['result'] if 'result' in params.keys() else None)
             self.set_end_of_job(params['endOfJob'] if 'endOfJob' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
-
 
     def get_job_id(self):
         """
@@ -130,7 +130,7 @@ class JobResult(object):
         self.__create_at = create_at
 
     def to_dict(self):
-        return { 
+        return {
             "jobId": self.__job_id,
             "queueId": self.__queue_id,
             "statusCode": self.__status_code,

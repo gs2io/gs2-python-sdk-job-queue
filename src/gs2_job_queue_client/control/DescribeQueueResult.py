@@ -25,16 +25,13 @@ class DescribeQueueResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        
         self.__items = list(
             map(
                 lambda data:
-                Queue(data)
-                ,
+                Queue(data),
                 response['items']
             )
         )
-        
         self.__next_page_token = unicode(response['nextPageToken']) if 'nextPageToken' in response.keys() and response['nextPageToken'] is not None else None
 
     def get_items(self):
@@ -59,9 +56,7 @@ class DescribeQueueResult(object):
         :return: 辞書配列
         :rtype: dict
         """
-        return { 
+        return {
             'items': map(lambda item: item.to_dict(), self.__items),
-        
             'nextPageToken': self.__next_page_token,
-        
         }

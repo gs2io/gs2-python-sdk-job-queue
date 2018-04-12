@@ -32,11 +32,15 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         super(DeleteDeadJobRequest, self).__init__(params)
         if params is None:
             self.__queue_name = None
-            self.__user_id = None
-            self.__job_id = None
         else:
             self.set_queue_name(params['queueName'] if 'queueName' in params.keys() else None)
+        if params is None:
+            self.__user_id = None
+        else:
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
+        if params is None:
+            self.__job_id = None
+        else:
             self.set_job_id(params['jobId'] if 'jobId' in params.keys() else None)
 
     def get_queue_name(self):
@@ -53,6 +57,8 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
+        if not isinstance(queue_name, unicode):
+            raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
     def with_queue_name(self, queue_name):
@@ -80,6 +86,8 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
+        if not isinstance(user_id, unicode):
+            raise TypeError(type(user_id))
         self.__user_id = user_id
 
     def with_user_id(self, user_id):
@@ -107,6 +115,8 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param job_id: ジョブID
         :type job_id: unicode
         """
+        if not isinstance(job_id, unicode):
+            raise TypeError(type(job_id))
         self.__job_id = job_id
 
     def with_job_id(self, job_id):

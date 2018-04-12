@@ -32,11 +32,15 @@ class PushRequest(Gs2BasicRequest):
         super(PushRequest, self).__init__(params)
         if params is None:
             self.__queue_name = None
-            self.__user_id = None
-            self.__jobs = None
         else:
             self.set_queue_name(params['queueName'] if 'queueName' in params.keys() else None)
+        if params is None:
+            self.__user_id = None
+        else:
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
+        if params is None:
+            self.__jobs = None
+        else:
             self.set_jobs(params['jobs'] if 'jobs' in params.keys() else None)
 
     def get_queue_name(self):
@@ -53,6 +57,8 @@ class PushRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
+        if not isinstance(queue_name, unicode):
+            raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
     def with_queue_name(self, queue_name):
@@ -80,6 +86,8 @@ class PushRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
+        if not isinstance(user_id, unicode):
+            raise TypeError(type(user_id))
         self.__user_id = user_id
 
     def with_user_id(self, user_id):
@@ -107,6 +115,8 @@ class PushRequest(Gs2BasicRequest):
         :param jobs: 追加するジョブの情報
         :type jobs: list[PushJob]
         """
+        if not isinstance(jobs, list[PushJob]):
+            raise TypeError(type(jobs))
         self.__jobs = jobs
 
     def with_jobs(self, jobs):

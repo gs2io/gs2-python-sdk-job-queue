@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class Queue(object):
 
     def __init__(self, params=None):
@@ -37,7 +38,6 @@ class Queue(object):
             self.set_notification_game_name(params['notificationGameName'] if 'notificationGameName' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
             self.set_update_at(params['updateAt'] if 'updateAt' in params.keys() else None)
-
 
     def get_queue_id(self):
         """
@@ -184,7 +184,7 @@ class Queue(object):
         self.__update_at = update_at
 
     def to_dict(self):
-        return { 
+        return {
             "queueId": self.__queue_id,
             "ownerId": self.__owner_id,
             "name": self.__name,

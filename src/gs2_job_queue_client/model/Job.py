@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class Job(object):
 
     def __init__(self, params=None):
@@ -35,7 +36,6 @@ class Job(object):
             self.set_current_retry(params['currentRetry'] if 'currentRetry' in params.keys() else None)
             self.set_max_retry(params['maxRetry'] if 'maxRetry' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
-
 
     def get_job_id(self):
         """
@@ -166,7 +166,7 @@ class Job(object):
         self.__create_at = create_at
 
     def to_dict(self):
-        return { 
+        return {
             "jobId": self.__job_id,
             "queueId": self.__queue_id,
             "userId": self.__user_id,
