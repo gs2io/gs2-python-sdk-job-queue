@@ -57,7 +57,7 @@ class PushRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
-        if not isinstance(queue_name, unicode):
+        if queue_name and not isinstance(queue_name, unicode):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
@@ -86,7 +86,7 @@ class PushRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
-        if not isinstance(user_id, unicode):
+        if user_id and not isinstance(user_id, unicode):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -115,7 +115,7 @@ class PushRequest(Gs2BasicRequest):
         :param jobs: 追加するジョブの情報
         :type jobs: list[PushJob]
         """
-        if not isinstance(jobs, list[PushJob]):
+        if jobs and not isinstance(jobs, list[PushJob]):
             raise TypeError(type(jobs))
         self.__jobs = jobs
 
