@@ -49,7 +49,7 @@ class RunRequest(Gs2UserRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
-        if queue_name and not isinstance(queue_name, unicode):
+        if _queue_name and not (isinstance(_queue_name, str) or isinstance(_queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 

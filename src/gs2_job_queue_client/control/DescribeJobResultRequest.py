@@ -61,7 +61,7 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前を指定します。
         :type queue_name: unicode
         """
-        if queue_name and not isinstance(queue_name, unicode):
+        if queue_name and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
@@ -90,7 +90,7 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param job_id: ジョブID
         :type job_id: unicode
         """
-        if job_id and not isinstance(job_id, unicode):
+        if job_id and not (isinstance(job_id, str) or isinstance(job_id, unicode)):
             raise TypeError(type(job_id))
         self.__job_id = job_id
 
@@ -119,7 +119,7 @@ class DescribeJobResultRequest(Gs2BasicRequest):
         :param page_token: データの取得を開始する位置を指定するトークン
         :type page_token: unicode
         """
-        if page_token and not isinstance(page_token, unicode):
+        if page_token and not (isinstance(page_token, str) or isinstance(page_token, unicode)):
             raise TypeError(type(page_token))
         self.__page_token = page_token
 

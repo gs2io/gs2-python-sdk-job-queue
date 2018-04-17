@@ -65,7 +65,7 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param name: 名前
         :type name: unicode
         """
-        if name and not isinstance(name, unicode):
+        if name and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 
@@ -94,7 +94,7 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
-        if description and not isinstance(description, unicode):
+        if description and not (isinstance(description, str) or isinstance(description, unicode)):
             raise TypeError(type(description))
         self.__description = description
 
@@ -123,7 +123,7 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_type: ジョブが追加されたときの通知方式
         :type notification_type: unicode
         """
-        if notification_type and not isinstance(notification_type, unicode):
+        if notification_type and not (isinstance(notification_type, str) or isinstance(notification_type, unicode)):
             raise TypeError(type(notification_type))
         self.__notification_type = notification_type
 
@@ -152,7 +152,7 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_url: http/https を選択した際の通知先URL
         :type notification_url: unicode
         """
-        if notification_url and not isinstance(notification_url, unicode):
+        if notification_url and not (isinstance(notification_url, str) or isinstance(notification_url, unicode)):
             raise TypeError(type(notification_url))
         self.__notification_url = notification_url
 
@@ -181,7 +181,7 @@ class CreateQueueRequest(Gs2BasicRequest):
         :param notification_game_name: gs2-in-game-push-notification を選択した際の GS2-InGamePushNotification のゲーム名
         :type notification_game_name: unicode
         """
-        if notification_game_name and not isinstance(notification_game_name, unicode):
+        if notification_game_name and not (isinstance(notification_game_name, str) or isinstance(notification_game_name, unicode)):
             raise TypeError(type(notification_game_name))
         self.__notification_game_name = notification_game_name
 
