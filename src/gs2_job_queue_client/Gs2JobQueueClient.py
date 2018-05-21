@@ -16,6 +16,7 @@
 
 from gs2_core_client.Gs2Constant import Gs2Constant
 from gs2_core_client.AbstractGs2Client import AbstractGs2Client
+from aws_sdk_for_serverless.common import url_encoder
 
 
 class Gs2JobQueueClient(AbstractGs2Client):
@@ -46,7 +47,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DeleteDeadJobRequest import DeleteDeadJobRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else request.get_job_id())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else url_encoder.encode(request.get_job_id()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "",
             service=self.ENDPOINT,
             component=DeleteDeadJobRequest.Constant.MODULE,
             target_function=DeleteDeadJobRequest.Constant.FUNCTION,
@@ -74,7 +75,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeDeadJobResult import DescribeDeadJobResult
         return DescribeDeadJobResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob",
             service=self.ENDPOINT,
             component=DescribeDeadJobRequest.Constant.MODULE,
             target_function=DescribeDeadJobRequest.Constant.FUNCTION,
@@ -102,7 +103,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeDeadJobByScriptNameResult import DescribeDeadJobByScriptNameResult
         return DescribeDeadJobByScriptNameResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob/script/" + str(("null" if request.get_script_name() is None or request.get_script_name() == "" else request.get_script_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob/script/" + str(("null" if request.get_script_name() is None or request.get_script_name() == "" else url_encoder.encode(request.get_script_name()))) + "",
             service=self.ENDPOINT,
             component=DescribeDeadJobByScriptNameRequest.Constant.MODULE,
             target_function=DescribeDeadJobByScriptNameRequest.Constant.FUNCTION,
@@ -130,7 +131,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeDeadJobByUserIdResult import DescribeDeadJobByUserIdResult
         return DescribeDeadJobByUserIdResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "",
             service=self.ENDPOINT,
             component=DescribeDeadJobByUserIdRequest.Constant.MODULE,
             target_function=DescribeDeadJobByUserIdRequest.Constant.FUNCTION,
@@ -156,7 +157,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.GetDeadJobResult import GetDeadJobResult
         return GetDeadJobResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else request.get_job_id())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else url_encoder.encode(request.get_job_id()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "",
             service=self.ENDPOINT,
             component=GetDeadJobRequest.Constant.MODULE,
             target_function=GetDeadJobRequest.Constant.FUNCTION,
@@ -184,7 +185,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeJobResultResult import DescribeJobResultResult
         return DescribeJobResultResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else request.get_job_id())) + "/result",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/deadJob/" + str(("null" if request.get_job_id() is None or request.get_job_id() == "" else url_encoder.encode(request.get_job_id()))) + "/result",
             service=self.ENDPOINT,
             component=DescribeJobResultRequest.Constant.MODULE,
             target_function=DescribeJobResultRequest.Constant.FUNCTION,
@@ -212,7 +213,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeJobResult import DescribeJobResult
         return DescribeJobResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/job",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/job",
             service=self.ENDPOINT,
             component=DescribeJobRequest.Constant.MODULE,
             target_function=DescribeJobRequest.Constant.FUNCTION,
@@ -240,7 +241,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.DescribeJobByUserIdResult import DescribeJobByUserIdResult
         return DescribeJobByUserIdResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "",
             service=self.ENDPOINT,
             component=DescribeJobByUserIdRequest.Constant.MODULE,
             target_function=DescribeJobByUserIdRequest.Constant.FUNCTION,
@@ -268,7 +269,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
         from gs2_job_queue_client.control.PushRequest import PushRequest
         from gs2_job_queue_client.control.PushResult import PushResult
         return PushResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "",
             service=self.ENDPOINT,
             component=PushRequest.Constant.MODULE,
             target_function=PushRequest.Constant.FUNCTION,
@@ -295,7 +296,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
         from gs2_job_queue_client.control.RunByUserIdRequest import RunByUserIdRequest
         from gs2_job_queue_client.control.RunByUserIdResult import RunByUserIdResult
         return RunByUserIdResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/run",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/job/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/run",
             service=self.ENDPOINT,
             component=RunByUserIdRequest.Constant.MODULE,
             target_function=RunByUserIdRequest.Constant.FUNCTION,
@@ -353,7 +354,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_job_queue_client.control.DeleteQueueRequest import DeleteQueueRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "",
             service=self.ENDPOINT,
             component=DeleteQueueRequest.Constant.MODULE,
             target_function=DeleteQueueRequest.Constant.FUNCTION,
@@ -407,7 +408,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.GetQueueResult import GetQueueResult
         return GetQueueResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "",
             service=self.ENDPOINT,
             component=GetQueueRequest.Constant.MODULE,
             target_function=GetQueueRequest.Constant.FUNCTION,
@@ -433,7 +434,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
 
         from gs2_job_queue_client.control.GetQueueStatusResult import GetQueueStatusResult
         return GetQueueStatusResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "/status",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "/status",
             service=self.ENDPOINT,
             component=GetQueueStatusRequest.Constant.MODULE,
             target_function=GetQueueStatusRequest.Constant.FUNCTION,
@@ -461,7 +462,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
         from gs2_job_queue_client.control.RunRequest import RunRequest
         from gs2_job_queue_client.control.RunResult import RunResult
         return RunResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "",
             service=self.ENDPOINT,
             component=RunRequest.Constant.MODULE,
             target_function=RunRequest.Constant.FUNCTION,
@@ -495,7 +496,7 @@ class Gs2JobQueueClient(AbstractGs2Client):
         from gs2_job_queue_client.control.UpdateQueueRequest import UpdateQueueRequest
         from gs2_job_queue_client.control.UpdateQueueResult import UpdateQueueResult
         return UpdateQueueResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else request.get_queue_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/queue/" + str(("null" if request.get_queue_name() is None or request.get_queue_name() == "" else url_encoder.encode(request.get_queue_name()))) + "",
             service=self.ENDPOINT,
             component=UpdateQueueRequest.Constant.MODULE,
             target_function=UpdateQueueRequest.Constant.FUNCTION,
