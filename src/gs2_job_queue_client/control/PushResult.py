@@ -32,7 +32,6 @@ class PushResult(object):
                 response['items']
             )
         )
-
     def get_items(self):
         """
         ジョブを取得
@@ -40,6 +39,12 @@ class PushResult(object):
         :rtype: list[Job]
         """
         return self.__items
+
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(PushResult, self).__getitem__(key)
 
     def to_dict(self):
         """

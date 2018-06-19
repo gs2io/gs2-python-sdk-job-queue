@@ -183,6 +183,12 @@ class Queue(object):
         """
         self.__update_at = update_at
 
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(Queue, self).__getitem__(key)
+
     def to_dict(self):
         return {
             "queueId": self.__queue_id,

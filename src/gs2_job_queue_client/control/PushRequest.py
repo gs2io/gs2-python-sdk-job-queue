@@ -115,7 +115,7 @@ class PushRequest(Gs2BasicRequest):
         :param jobs: 追加するジョブの情報
         :type jobs: list[PushJob]
         """
-        if jobs and not isinstance(jobs, list):
+        if jobs and not isinstance(jobs, list[PushJob]):
             raise TypeError(type(jobs))
         self.__jobs = jobs
 

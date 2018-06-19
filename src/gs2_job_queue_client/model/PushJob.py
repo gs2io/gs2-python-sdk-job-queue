@@ -75,6 +75,12 @@ class PushJob(object):
         """
         self.__max_retry = max_retry
 
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(PushJob, self).__getitem__(key)
+
     def to_dict(self):
         return {
             "scriptName": self.__script_name,
