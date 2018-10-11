@@ -61,7 +61,7 @@ class DescribeDeadJobByScriptNameRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前を指定します。
         :type queue_name: unicode
         """
-        if queue_name and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
+        if queue_name is not None and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
@@ -90,7 +90,7 @@ class DescribeDeadJobByScriptNameRequest(Gs2BasicRequest):
         :param script_name: スクリプト名
         :type script_name: unicode
         """
-        if script_name and not (isinstance(script_name, str) or isinstance(script_name, unicode)):
+        if script_name is not None and not (isinstance(script_name, str) or isinstance(script_name, unicode)):
             raise TypeError(type(script_name))
         self.__script_name = script_name
 
@@ -119,7 +119,7 @@ class DescribeDeadJobByScriptNameRequest(Gs2BasicRequest):
         :param page_token: データの取得を開始する位置を指定するトークン
         :type page_token: unicode
         """
-        if page_token and not (isinstance(page_token, str) or isinstance(page_token, unicode)):
+        if page_token is not None and not (isinstance(page_token, str) or isinstance(page_token, unicode)):
             raise TypeError(type(page_token))
         self.__page_token = page_token
 
@@ -148,7 +148,7 @@ class DescribeDeadJobByScriptNameRequest(Gs2BasicRequest):
         :param limit: データの取得件数
         :type limit: int
         """
-        if limit and not isinstance(limit, int):
+        if limit is not None and not isinstance(limit, int):
             raise TypeError(type(limit))
         self.__limit = limit
 

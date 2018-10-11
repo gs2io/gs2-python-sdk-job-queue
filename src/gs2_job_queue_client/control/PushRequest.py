@@ -57,7 +57,7 @@ class PushRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
-        if queue_name and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
+        if queue_name is not None and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
@@ -86,7 +86,7 @@ class PushRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
-        if user_id and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
+        if user_id is not None and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -115,10 +115,9 @@ class PushRequest(Gs2BasicRequest):
         :param jobs: 追加するジョブの情報
         :type jobs: list[PushJob]
         """
-        if jobs and not isinstance(jobs, list):
+        if jobs is not None and not isinstance(jobs, list):
             raise TypeError(type(jobs))
-        jobs = map(lambda x: x.to_dict(), jobs)
-        self.__jobs = jobs
+        self.__jobs = map(lambda x: x.to_dict(), jobs) if jobs is not None else None
 
     def with_jobs(self, jobs):
         """

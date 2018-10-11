@@ -49,7 +49,7 @@ class GetQueueRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前を指定します。
         :type queue_name: unicode
         """
-        if queue_name and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
+        if queue_name is not None and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 

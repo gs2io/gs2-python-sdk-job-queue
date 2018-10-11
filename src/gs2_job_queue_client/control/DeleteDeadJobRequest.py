@@ -57,7 +57,7 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param queue_name: ジョブキューの名前
         :type queue_name: unicode
         """
-        if queue_name and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
+        if queue_name is not None and not (isinstance(queue_name, str) or isinstance(queue_name, unicode)):
             raise TypeError(type(queue_name))
         self.__queue_name = queue_name
 
@@ -86,7 +86,7 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
-        if user_id and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
+        if user_id is not None and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -115,7 +115,7 @@ class DeleteDeadJobRequest(Gs2BasicRequest):
         :param job_id: ジョブID
         :type job_id: unicode
         """
-        if job_id and not (isinstance(job_id, str) or isinstance(job_id, unicode)):
+        if job_id is not None and not (isinstance(job_id, str) or isinstance(job_id, unicode)):
             raise TypeError(type(job_id))
         self.__job_id = job_id
 
